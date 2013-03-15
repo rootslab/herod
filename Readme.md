@@ -45,7 +45,7 @@ Herod#spawn( String cmd [, Array cargs [, Object copt ] ] ) : Number
 // Adding a child process to handle.
 Herod#enlist( ChildProcess child [, String name ] ) : Number
 
-// Kill a child process through its pid. signal defaulrs to 'SIGKILL'.
+// Kill a child process through its pid. signal defaults to 'SIGKILL'.
 Herod#kill( Number pid, [ String signal ] ) : Boolean
 
 ```
