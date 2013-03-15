@@ -1,6 +1,7 @@
 ###Herod.
 [![build status](https://travis-ci.org/rootslab/herod.png?branch=master)](https://travis-ci.org/rootslab/herod)
-> Herod, a child process killer / handler.
+> Herod, a child process killer / handler. Simply, when the main node-process dies,
+it kills all its currently added child processes.
 
 ###Install
 
@@ -44,6 +45,7 @@ Herod#enlist( ChildProcess child, String name ) : Number
 Herod#kill( Number pid, String signal ) : Boolean
 
 ```
+
 ### MIT License
 
 > Copyright (c) 2012 &lt; Guglielmo Ferri : 44gatti@gmail.com &gt;
