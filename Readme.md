@@ -26,23 +26,27 @@ $ npm test
 ```javascript
 // number of alive handled childrens
 Herod.alive : Number
-// hash of child processes
+
+// hash of alive child processes
 Herod.childrens : Object
+
 // enable console logging, defaults to false
 Herod.debug : Boolean
 ```
 
 ###Methods
 
+> Arguments within [ ] are optional.
+
 ```javascript
-// Create and enlist a child process through child_process#spawn .
-Herod#spawn( String cmd, Array args, Object opt ) : Number
+// Create a child process through child_process#spawn and enlist it.
+Herod#spawn( String cmd [, Array cargs [, Object copt ] ] ) : Number
 
 // Adding a child process to handle.
-Herod#enlist( ChildProcess child, String name ) : Number
+Herod#enlist( ChildProcess child [, String name ] ) : Number
 
-// Kill a child process through its pid.
-Herod#kill( Number pid, String signal ) : Boolean
+// Kill a child process through its pid. signal defaulrs to 'SIGKILL'.
+Herod#kill( Number pid, [ String signal ] ) : Boolean
 
 ```
 
