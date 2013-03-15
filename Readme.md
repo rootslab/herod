@@ -8,7 +8,7 @@
 $ npm install herod [-g]
 ```
 
-> __require__:
+> __require__ and get an instance of Herod singleton:
 
 ```javascript
 var Herod  = require( 'herod' );
@@ -20,22 +20,29 @@ var Herod  = require( 'herod' );
 $ cd herod/
 $ npm test
 ```
-
-###Constructor
-
-> Create an instance: 
-
-```javascript
-```
-
 ###Properties
 
 ```javascript
+// number of alive handled childrens
+Herod.alive : Number
+// hash of child processes
+Herod.childrens : Object
+// enable console logging, defaults to false
+Herod.debug : Boolean
 ```
 
 ###Methods
 
 ```javascript
+// Create and enlist a child process through child_process#spawn .
+Herod#spawn( String cmd, Array args, Object opt ) : Number
+
+// Adding a child process to handle.
+Herod#enlist( ChildProcess child, String name ) : Number
+
+// Kill a child process through its pid.
+Herod#kill( Number pid, String signal ) : Boolean
+
 ```
 ### MIT License
 
