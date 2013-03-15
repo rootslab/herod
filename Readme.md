@@ -1,6 +1,6 @@
 ###Herod.
 [![build status](https://travis-ci.org/rootslab/herod.png?branch=master)](https://travis-ci.org/rootslab/herod)
-> Herod, a child process killer.
+> Herod, a child process killer / handler.
 
 ###Install
 
