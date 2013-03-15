@@ -26,26 +26,26 @@ $ npm test
 ```javascript
 
 /*
- * Associative array of alive child processes:
- * [
+ * Hash of alive child processes:
+ * {
  *  'pid123': {
  *      name: 'cmd,
  *      process : .. 
  *   },
  *   ...
- * ]
+ * }
  * 
  */
 Herod.childrens : Object
 
 /*
  * Number of alive handled childrens
- * ( it holds the length of Herod.childrens )
+ * ( it holds the cardinality of Herod.childrens object )
  */
 Herod.alive : Number
 
 /*
- * Enable console logging,
+ * Enable console logging for Herod notice messages,
  * it defaults to false.
  */
 Herod.debug : Boolean
