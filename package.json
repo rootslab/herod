@@ -1,6 +1,6 @@
 {
     "name" : "herod"
-  , "version" : "0.0.5"
+  , "version" : "0.0.6"
   , "description" : "Herod, a child process killer / handler. Simply, when the main node-process dies, it kills all its currently added child processes."
   , "homepage" : "https://github.com/rootslab/herod"
   , "repository" : {

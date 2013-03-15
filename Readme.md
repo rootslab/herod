@@ -9,7 +9,7 @@ it kills all its currently added child processes.
 $ npm install herod [-g]
 ```
 
-> __require__ and get an instance of Herod singleton:
+> __require__ and get an instance of Herod __singleton__:
 
 ```javascript
 var Herod  = require( 'herod' );
@@ -24,13 +24,30 @@ $ npm test
 ###Properties
 
 ```javascript
-// number of alive handled childrens
-Herod.alive : Number
 
-// hash of alive child processes
+/*
+ * Associative array of alive child processes:
+ * [
+ *  'pid123': {
+ *      name: 'cmd,
+ *      process : .. 
+ *   },
+ *   ...
+ * ]
+ * 
+ */
 Herod.childrens : Object
 
-// enable console logging, defaults to false
+/*
+ * Number of alive handled childrens
+ * ( it holds the length of Herod.childrens )
+ */
+Herod.alive : Number
+
+/*
+ * Enable console logging,
+ * it defaults to false.
+ */
 Herod.debug : Boolean
 ```
 
@@ -39,15 +56,25 @@ Herod.debug : Boolean
 > Arguments within [ ] are optional.
 
 ```javascript
-// Create a child process through child_process#spawn and enlist it.
-Herod#spawn( String cmd [, Array cargs [, Object copt ] ] ) : Number
+/*
+ * Create a child process through ChildProcess#spawn and automatically enlist it.
+ * It returns the child pid number or undefined if no child was added.
+ * - cargs defaults to : [].
+ * - copt defaults to : { cwd : '/tmp', stdio : 'pipe' }
+ */
+Herod#spawn( String cmd [, Array cargs [, Object copt ] ] ) : String
 
-// Adding a child process to handle.
-Herod#enlist( ChildProcess child [, String name ] ) : Number
+/*
+ * Adding a child process to handle. It returns the child pid or undefined,
+ * if no child was added.
+ * ( ChildProcess is, at least, an instance of EventEmitter )
+ */
+Herod#enlist( EventEmitter child [, String name ] ) : String
 
-// Kill a child process through its pid. signal defaults to 'SIGKILL'.
+/*
+ * Kill a child process through its pid. Signal defaults to 'SIGKILL'.
+ */
 Herod#kill( Number pid, [ String signal ] ) : Boolean
-
 ```
 
 ### MIT License
