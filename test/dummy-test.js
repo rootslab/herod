@@ -6,12 +6,17 @@ var log = console.log,
     pid = null,
     child = null;
 
+Herod.daemonize();
+/**/
+require( 'http' ).createServer( function ( req, res ) {
+
+} ).listen( 3000 );
+/** /
 Herod.debug = true;
 
 // singleton instance
 assert.equal( require( '../' ), Herod );
 assert.equal( typeof Herod, 'object' );
-
 // create a long-running child process ( daemon )
 child = Herod.spawn( 'ping', [ 'www.google.com' ], {
     detached : true,
@@ -23,8 +28,9 @@ child.unref();
 pid = child.pid;
 
 assert.equal( Herod.childrens[ pid ].process, child );
-process.kill( process.pid );
+// process.kill( process.pid );
 // process.kill( process.pid, 'SIGQUIT' );
 // process.kill( process.pid, 'SIGTERM' );
 // process.kill( process.pid, 'SIGHUP' );
-process.exit();
+// process.exit();
+/**/
