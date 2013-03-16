@@ -60,7 +60,8 @@ Herod.debug : Boolean
  * Create a child process through ChildProcess#spawn, then automatically
  * enlist / register it to Herod.
  * 
- * It returns the child pid number or undefined if no child was added.
+ * It returns the child process or undefined if no child was added.
+ * ( a ChildProcess is an instance of EventEmitter ).
  * 
  * - cargs defaults to : [].
  * - copt defaults to : {
@@ -68,14 +69,14 @@ Herod.debug : Boolean
  *      stdio : 'pipe',
  *      detached : false
  *   }
- * Pass : { detached : true } to create a long-running child process.
+ *
+ * Note : { detached : true } to create a long-running child process.
  */
-Herod#spawn( String cmd [, Array cargs [, Object copt ] ] ) : String
+Herod#spawn( String cmd [, Array cargs [, Object copt ] ] ) : EventEmitter
 
 /*
  * Adding a child process to handle.
  * It returns the child pid or undefined, if no child was added 
- * ( a ChildProcess is an instance of EventEmitter ).
  */
 Herod#enlist( EventEmitter child [, String name ] ) : String
 
