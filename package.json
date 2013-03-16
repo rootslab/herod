@@ -1,14 +1,14 @@
 {
     "name" : "herod"
-  , "version" : "0.0.12"
-  , "description" : "Herod, a child process killer / handler."
+  , "version" : "0.1.0"
+  , "description" : "Herod, an heartless killer / handler for ( long-running ) child processes."
   , "homepage" : "https://github.com/rootslab/herod"
   , "repository" : {
         "type" : "git"
         ,"url" : "git://github.com/rootslab/herod.git"
     }
-  , "keywords" : [ "process", "child process", "spawn" ]
-  , "tags": [ "child process", "process", "spawn" ]
+  , "keywords" : [ "process", "child process", "spawn", "daemon", "killer" ]
+  , "tags": [ "child process", "process", "spawn", "daemon", "process killer", "killer" ]
   , "author" : "Guglielmo Ferri <44gatti@gmail.com>"
   , "dependencies" : {}
   , "main": "index"

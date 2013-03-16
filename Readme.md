@@ -1,6 +1,7 @@
 ###Herod.
 [![build status](https://travis-ci.org/rootslab/herod.png?branch=master)](https://travis-ci.org/rootslab/herod)
-> Herod, a child process killer / handler.
+> Herod, an heartless killer / handler for ( long-running ) child processes.
+
 
 ###Install
 
@@ -38,7 +39,7 @@ $ npm test
 Herod.childrens : Object
 
 /*
- * Number of alive handled childrens
+ * Number of alive handled childrens.
  * ( it holds the cardinality of Herod.childrens object )
  */
 Herod.alive : Number
@@ -56,24 +57,41 @@ Herod.debug : Boolean
 
 ```javascript
 /*
- * Create a child process through ChildProcess#spawn and automatically enlist it.
+ * Create a child process through ChildProcess#spawn, then automatically
+ * enlist / register it to Herod.
+ * 
  * It returns the child pid number or undefined if no child was added.
+ * 
  * - cargs defaults to : [].
- * - copt defaults to : { cwd : '/tmp', stdio : 'pipe' }
+ * - copt defaults to : {
+ *      cwd : '/tmp',
+ *      stdio : 'pipe',
+ *      detached : false
+ *   }
+ * Pass : { detached : true } to create a long-running child process.
  */
 Herod#spawn( String cmd [, Array cargs [, Object copt ] ] ) : String
 
 /*
- * Adding a child process to handle. It returns the child pid or undefined,
- * if no child was added.
- * ( ChildProcess is, at least, an instance of EventEmitter )
+ * Adding a child process to handle.
+ * It returns the child pid or undefined, if no child was added 
+ * ( a ChildProcess is an instance of EventEmitter ).
  */
 Herod#enlist( EventEmitter child [, String name ] ) : String
 
 /*
- * Kill a child process through its pid. Signal defaults to 'SIGKILL'.
+ * Kill a child process through its pid.
+ * The signal defaults to 'SIGKILL'.
  */
 Herod#kill( Number pid, [ String signal ] ) : Boolean
+
+/*
+ * Kill all child processes sending them the same signal.
+ * The signal defaults to 'SIGKILL'.
+ * It returns the number of alive processes.
+ */
+Herod#genocide( String signal ) : Number
+
 ```
 
 ### MIT License
