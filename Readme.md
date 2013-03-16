@@ -78,7 +78,7 @@ Herod#spawn( String cmd [, Array cargs [, Object copt ] ] ) : EventEmitter
  * Adding a child process to handle.
  * It returns the child pid or undefined, if no child was added 
  */
-Herod#enlist( EventEmitter child [, String name ] ) : String
+Herod#enlist( EventEmitter child [, String name [, Array args [, Object copt ] ] ] ) : String
 
 /*
  * Kill a child process through its pid.
