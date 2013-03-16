@@ -90,7 +90,7 @@ Herod#kill( Number pid, [ String signal ] ) : Boolean
  * The signal defaults to 'SIGKILL'.
  * It returns the number of alive processes.
  */
-Herod#genocide( String signal ) : Number
+Herod#genocide( [ String signal ] ) : Number
 
 ```
 
