@@ -93,6 +93,24 @@ Herod#kill( Number pid, [ String signal ] ) : Boolean
  */
 Herod#genocide( [ String signal ] ) : Number
 
+/*
+ * Exit from main process, or specify a signal to send.
+ */
+Herod#suicide( [ String signal ] ) : null
+
+/*
+ * Spawn a daemon process for current script, killing the main parent process.
+ *
+ * default options are:
+ * {
+ *    stdin : 'ignore',
+ *    stdout : 'ignore',
+ *    stderr : 'ignore',
+ *    env : process.env
+ * }
+ */
+Herod#daemonize( [ Object options ] ) : null
+
 ```
 
 ### MIT License
