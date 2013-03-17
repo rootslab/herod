@@ -61,5 +61,5 @@ setTimeout( function () {
     // process.kill( process.pid, 'SIGHUP' );
     // process.exit();
     // Herod.genocide();
-    Herod.suicide();
+    Herod.suicide( 'SIGKILL' );
 }, wtime );
