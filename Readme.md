@@ -49,6 +49,9 @@ Herod.alive : Number
  * it defaults to false.
  */
 Herod.debug : Boolean
+
+// last received signal, like 'SIGINT', 'SIGTERM', ..
+Herod.lsignal : String
 ```
 
 ###Methods
