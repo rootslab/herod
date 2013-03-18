@@ -49,6 +49,9 @@ Herod.alive : Number
  * it defaults to false.
  */
 Herod.debug : Boolean
+
+// last received signal, like 'SIGINT', 'SIGTERM', ..
+Herod.lsignal : String
 ```
 
 ###Methods
@@ -91,7 +94,7 @@ Herod#kill( Number pid, [ String signal ] ) : Boolean
  * The signal defaults to 'SIGKILL'.
  * It returns the number of alive processes.
  */
-Herod#genocide( [ String signal ] ) : Number
+Herod#genocide( [ String signal [, Function cback  ] ) : undefined
 
 /*
  * Exit from main process, or specify a signal to send.
