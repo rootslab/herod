@@ -20,8 +20,8 @@ assert.equal( require( '../' ), Herod );
 assert.equal( typeof Herod, 'object' );
 
 // daemonize
-// fproc = Herod.daemonize( { stdout : process.stdout, stderr : process.stderr } );
-// assert.equal( fproc, process );
+fproc = Herod.daemonize( { stdout : process.stdout, stderr : process.stderr } );
+assert.equal( fproc, process );
 
 // create a long-running child process ( daemon )
 child = Herod.spawn( 'ping', [ 'google.com' ], {
@@ -66,6 +66,6 @@ setTimeout( function () {
     // Herod.kill( pid );
     // Herod.kill( pid2 );
     // Herod.genocide( null, function () { log( '\n** That\'s all! **\n' ) } );
-    Herod.kill( pid2, null, function () { log( '\n** I\'m a cback! **\n' ) } );
-    // Herod.suicide( 'SIGTERM' );
+    // Herod.kill( pid2, null, function () { log( '\n** I\'m a cback! **\n' ) } );
+    Herod.suicide( 'SIGTERM' );
 }, wtime );
