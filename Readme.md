@@ -97,12 +97,15 @@ Herod#kill( Number pid, [ String signal, [, Function cback ] ] ) : Boolean
 Herod#genocide( [ String signal [, Function cback  ] ) : undefined
 
 /*
- * Exit from main process, or specify a signal to send.
+ * Specify a signal to send for killing all enlisted child processes
+ * and the main process itself.
  */
 Herod#suicide( [ String signal ] ) : undefined
 
 /*
  * Spawn a daemon process for current script, killing the main parent process.
+ * It reloads / spawn the script in which Herod#daemonize is called, as a 
+ * long-running child process.
  *
  * default options are:
  * {
@@ -111,6 +114,7 @@ Herod#suicide( [ String signal ] ) : undefined
  *    stderr : 'ignore',
  *    env : process.env
  * }
+ * for debugging, se process.stdin and process.stdout
  */
 Herod#daemonize( [ Object options ] ) : undefined
 
