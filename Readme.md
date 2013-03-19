@@ -87,7 +87,7 @@ Herod#enlist( EventEmitter child [, String name [, Array args [, Object copt ] ]
  * Kill a child process through its pid.
  * The signal defaults to 'SIGKILL'.
  */
-Herod#kill( Number pid, [ String signal, [, Function cback ] ] ) : Boolean
+Herod#kill( Number pid, [ String signal [, Function cback ] ] ) : Boolean
 
 /*
  * Kill all child processes sending them the same signal.
