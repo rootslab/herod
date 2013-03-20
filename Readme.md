@@ -103,7 +103,7 @@ Herod#genocide( [ String signal [, Function cback  ] ) : undefined
 Herod#suicide( [ String signal ] ) : undefined
 
 /*
- * Spawn a daemon process for current script, killing the main parent process.
+ * Spawn a daemon process for current script, exiting the main parent process.
  * It reloads / spawn the script in which Herod#daemonize is called, as a 
  * long-running child process.
  *
@@ -114,7 +114,7 @@ Herod#suicide( [ String signal ] ) : undefined
  *    stderr : 'ignore',
  *    env : process.env
  * }
- * for debugging, se process.stdin and process.stdout
+ * for debugging, use process.stdin and process.stdout streams.
  */
 Herod#daemonize( [ Object options ] ) : undefined
 
