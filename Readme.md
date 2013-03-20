@@ -103,7 +103,7 @@ Herod#genocide( [ String signal [, Function cback  ] ) : undefined
 Herod#suicide( [ String signal ] ) : undefined
 
 /*
- * Spawn a daemon process for current script, killing the main parent process.
+ * Spawn a daemon process for current script, exiting the main parent process.
  * It reloads / spawn the script in which Herod#daemonize is called, as a 
  * long-running child process.
  *
