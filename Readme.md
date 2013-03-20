@@ -114,7 +114,7 @@ Herod#suicide( [ String signal ] ) : undefined
  *    stderr : 'ignore',
  *    env : process.env
  * }
- * for debugging, se process.stdin and process.stdout
+ * for debugging, use process.stdin and process.stdout
  */
 Herod#daemonize( [ Object options ] ) : undefined
 
