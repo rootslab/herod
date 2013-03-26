@@ -20,10 +20,14 @@ assert.equal( require( '../' ), Herod );
 assert.equal( typeof Herod, 'object' );
 
 // daemonize
+log( '\n\n** main process is now daemonized **' );
 fproc = Herod.daemonize( { stdout : process.stdout, stderr : process.stderr } );
 assert.equal( fproc, process );
 
-// create a long-running child process ( daemon )
+/*
+ * Create a long-running child process ( daemon ), Herod prevents that
+ * the parent waits for child exit, auto-calling child.unref().
+ */
 child = Herod.spawn( 'ping', [ 'google.com' ], {
     detached : true,
     // in, out, err
@@ -35,9 +39,6 @@ child2 = Herod.spawn( 'ping', [ 'redis.io' ], {
     // in, out, err
     stdio : [ 'ignore', 'ignore', 'ignore' ]
 } );
-// prevent that the parent waits for child exit
-child.unref();
-child2.unref();
 
 pid = child.pid;
 pid2 = child2.pid;
@@ -54,9 +55,10 @@ http.createServer( function ( req, res ) {
 } ).listen( port );
 
 log( '\n** process pid: "%s" listening on port %s. **', process.pid, port );
-log( '** wait %s secs for child processes genocide. **\n', ( wtime / 1000 ).toFixed( 1 ) );
+log( '** wait %s secs before calling suicide() **', ( wtime / 1000 ).toFixed( 1 ) );
 
 setTimeout( function () {
+    log( '** now call suicide (it implies childrens genocide) **\n' );
     // process.kill( process.pid );
     // process.kill( process.pid, 'SIGQUIT' );
     // process.kill( process.pid, 'SIGTERM' );
@@ -67,5 +69,7 @@ setTimeout( function () {
     // Herod.kill( pid2 );
     // Herod.genocide( null, function () { log( '\n** That\'s all! **\n' ) } );
     // Herod.kill( pid2, null, function () { log( '\n** I\'m a cback! **\n' ) } );
-    Herod.suicide( 'SIGTERM' );
+    Herod.suicide( 'SIGTERM', function () {
+        log( '\n** main process killback says: "goodbye!" ** ' );
+    } );
 }, wtime );

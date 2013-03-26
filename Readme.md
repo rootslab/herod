@@ -99,8 +99,9 @@ Herod#genocide( [ String signal [, Function cback  ] ) : undefined
 /*
  * Specify a signal to send for killing all enlisted child processes
  * and the main process itself.
+ * Callback will called on main process 'exit' event.
  */
-Herod#suicide( [ String signal ] ) : undefined
+Herod#suicide( [ String signal [, Function callback ] ] ) : undefined
 
 /*
  * Spawn a daemon process for current script, exiting the main parent process.
