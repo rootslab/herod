@@ -1,6 +1,6 @@
 {
     "name" : "herod"
-  , "version" : "0.4.0"
+  , "version" : "0.4.1"
   , "description" : "Herod, an heartless killer / handler for ( long-running ) child processes."
   , "homepage" : "https://github.com/rootslab/herod"
   , "repository" : {

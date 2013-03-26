@@ -20,7 +20,7 @@ assert.equal( require( '../' ), Herod );
 assert.equal( typeof Herod, 'object' );
 
 // daemonize
-log( '\n\n** daemonize main process **' );
+log( '\n\n** main process is now daemonized **' );
 fproc = Herod.daemonize( { stdout : process.stdout, stderr : process.stderr } );
 assert.equal( fproc, process );
 
@@ -69,5 +69,7 @@ setTimeout( function () {
     // Herod.kill( pid2 );
     // Herod.genocide( null, function () { log( '\n** That\'s all! **\n' ) } );
     // Herod.kill( pid2, null, function () { log( '\n** I\'m a cback! **\n' ) } );
-    Herod.suicide( 'SIGTERM' );
+    Herod.suicide( 'SIGTERM', function () {
+        log( '\n** main process killback says: "goodbye!" ** ' );
+    } );
 }, wtime );
