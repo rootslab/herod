@@ -1,5 +1,5 @@
 ###Herod.
-[![build status](https://travis-ci.org/rootslab/herod.png?branch=master)](https://travis-ci.org/rootslab/herod)
+[![build status](https://travis-ci.org/rootslab/herod.png?branch=master)](https://travis-ci.org/rootslab/herod) [![NPM version](https://badge.fury.io/js/herod.png)](http://badge.fury.io/js/herod)
 > Herod, an heartless killer / handler for ( long-running ) child processes.
 > When the main process dies, it kills all registered ( long-running ) child process.
 
